@@ -12,12 +12,22 @@ import Alamofire
 import Himotoki
 import Haneke
 
-class PostsTableViewController: UITableViewController {
+protocol APIModule {
+	var limit: Int { get }
+	var page: Int { get set }
+	var endpoint: String { get }
+}
+
+class PostsTableViewController: UITableViewController, APIModule {
 	let limit = 20
 	var page = 1
 	var posts: [PostModel] = []
 	var fetchers: [NetworkFetcher<UIImage>] = []
 	var isLoadgind = false
+
+	var endpoint: String {
+		return "https://danbooru.donmai.us/posts.json?limit=\(limit)&page=\(page)"
+	}
 
 	private func appendPost(post: PostModel) {
 		guard let url = post.previewFileURL else {
@@ -25,15 +35,15 @@ class PostsTableViewController: UITableViewController {
 		}
 
 		let fetcher = NetworkFetcher<UIImage>(URL: url)
-		self.posts.append(post)
-		self.fetchers.append(fetcher)
+		posts.append(post)
+		fetchers.append(fetcher)
 	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		registerNibs()
 
-		let endpoint = "https://danbooru.donmai.us/posts.json?limit=\(limit)&page=\(page)"
+		title = "POSTS"
+		registerNibs()
 
 		Alamofire.request(.GET, endpoint).responseJSON { response in
 			guard let json = response.result.value as? [[String : AnyObject]] else {
@@ -98,7 +108,6 @@ extension PostsTableViewController {
 
 		isLoadgind = true
 		page += 1
-		let endpoint = "https://danbooru.donmai.us/posts.json?limit=\(limit)&page=\(page)"
 
 		Alamofire.request(.GET, endpoint).responseJSON { response in
 			guard let json = response.result.value as? [[String : AnyObject]] else {

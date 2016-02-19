@@ -30,7 +30,7 @@ class PostImageTableViewCell: UITableViewCell {
 
 	class func heightWithModel(post: PostModel, inTableView tableView: UITableView) -> CGFloat {
 		if let height = post.imageHeight, let width = post.imageWidth {
-			return ceil((tableView.bounds.width * CGFloat(height)) / CGFloat(width)) + 1
+			return ceil((tableView.bounds.width * CGFloat(height)) / CGFloat(width))
 		}
 
 		return 100

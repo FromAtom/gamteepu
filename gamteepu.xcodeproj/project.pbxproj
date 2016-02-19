@@ -12,6 +12,10 @@
 		5C90949D1C75ECEA00A6BAC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C90949C1C75ECEA00A6BAC1 /* Assets.xcassets */; };
 		5C9094A01C75ECEA00A6BAC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C90949E1C75ECEA00A6BAC1 /* LaunchScreen.storyboard */; };
 		5C9094AB1C75ECEA00A6BAC1 /* gamteepuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9094AA1C75ECEA00A6BAC1 /* gamteepuTests.swift */; };
+		5C9DC53A1C7743F900A27ACD /* PagingMenuController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9DC5391C7743F900A27ACD /* PagingMenuController.framework */; };
+		5C9DC53C1C77465A00A27ACD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9DC53B1C77465A00A27ACD /* MainViewController.swift */; };
+		5C9DC53E1C77489E00A27ACD /* HotTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9DC53D1C77489E00A27ACD /* HotTableViewController.swift */; };
+		5C9DC5401C774DBC00A27ACD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9DC53F1C774DBC00A27ACD /* UIColorExtension.swift */; };
 		5CC4DB851C75EF54002DD6B5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC4DB841C75EF54002DD6B5 /* Alamofire.framework */; };
 		5CC4DB871C75EF5E002DD6B5 /* Himotoki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC4DB861C75EF5E002DD6B5 /* Himotoki.framework */; };
 		5CC4DB891C75EF67002DD6B5 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC4DB881C75EF67002DD6B5 /* Haneke.framework */; };
@@ -41,6 +45,10 @@
 		5C9094A61C75ECEA00A6BAC1 /* gamteepuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gamteepuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9094AA1C75ECEA00A6BAC1 /* gamteepuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gamteepuTests.swift; sourceTree = "<group>"; };
 		5C9094AC1C75ECEA00A6BAC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C9DC5391C7743F900A27ACD /* PagingMenuController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PagingMenuController.framework; path = Carthage/Build/iOS/PagingMenuController.framework; sourceTree = "<group>"; };
+		5C9DC53B1C77465A00A27ACD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5C9DC53D1C77489E00A27ACD /* HotTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotTableViewController.swift; sourceTree = "<group>"; };
+		5C9DC53F1C774DBC00A27ACD /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		5CC4DB841C75EF54002DD6B5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		5CC4DB861C75EF5E002DD6B5 /* Himotoki.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Himotoki.framework; path = Carthage/Build/iOS/Himotoki.framework; sourceTree = "<group>"; };
 		5CC4DB881C75EF67002DD6B5 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = Carthage/Build/iOS/Haneke.framework; sourceTree = "<group>"; };
@@ -55,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C9DC53A1C7743F900A27ACD /* PagingMenuController.framework in Frameworks */,
 				5CC4DB891C75EF67002DD6B5 /* Haneke.framework in Frameworks */,
 				5CC4DB871C75EF5E002DD6B5 /* Himotoki.framework in Frameworks */,
 				5CC4DB851C75EF54002DD6B5 /* Alamofire.framework in Frameworks */,
@@ -74,6 +83,7 @@
 		5C9094891C75ECEA00A6BAC1 = {
 			isa = PBXGroup;
 			children = (
+				5C9DC5391C7743F900A27ACD /* PagingMenuController.framework */,
 				5CC4DB881C75EF67002DD6B5 /* Haneke.framework */,
 				5CC4DB861C75EF5E002DD6B5 /* Himotoki.framework */,
 				5CC4DB841C75EF54002DD6B5 /* Alamofire.framework */,
@@ -97,10 +107,13 @@
 			children = (
 				5C9094951C75ECEA00A6BAC1 /* AppDelegate.swift */,
 				5CC4DB8A1C75EFF7002DD6B5 /* PostsTableViewController.swift */,
+				5C9DC53D1C77489E00A27ACD /* HotTableViewController.swift */,
 				5CC4DB921C75F276002DD6B5 /* Model */,
 				5CC4DB8C1C75F0D8002DD6B5 /* XIBs */,
 				5CC4DB8F1C75F10E002DD6B5 /* Views */,
 				5C9094991C75ECEA00A6BAC1 /* Main.storyboard */,
+				5C9DC53B1C77465A00A27ACD /* MainViewController.swift */,
+				5C9DC53F1C774DBC00A27ACD /* UIColorExtension.swift */,
 				5C90949C1C75ECEA00A6BAC1 /* Assets.xcassets */,
 				5C90949E1C75ECEA00A6BAC1 /* LaunchScreen.storyboard */,
 				5C9094A11C75ECEA00A6BAC1 /* Info.plist */,
@@ -249,6 +262,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Himotoki.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Haneke.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PagingMenuController.framework",
 			);
 			outputPaths = (
 			);
@@ -264,9 +278,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CC4DB911C75F13C002DD6B5 /* PostImageTableViewCell.swift in Sources */,
+				5C9DC5401C774DBC00A27ACD /* UIColorExtension.swift in Sources */,
 				5CC4DB941C75F28A002DD6B5 /* PostModel.swift in Sources */,
+				5C9DC53E1C77489E00A27ACD /* HotTableViewController.swift in Sources */,
 				5C9094961C75ECEA00A6BAC1 /* AppDelegate.swift in Sources */,
 				5CC4DB8B1C75EFF7002DD6B5 /* PostsTableViewController.swift in Sources */,
+				5C9DC53C1C77465A00A27ACD /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
