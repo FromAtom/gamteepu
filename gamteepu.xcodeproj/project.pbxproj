@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5C9094961C75ECEA00A6BAC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9094951C75ECEA00A6BAC1 /* AppDelegate.swift */; };
+		5C90949B1C75ECEA00A6BAC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C9094991C75ECEA00A6BAC1 /* Main.storyboard */; };
+		5C90949D1C75ECEA00A6BAC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C90949C1C75ECEA00A6BAC1 /* Assets.xcassets */; };
+		5C9094A01C75ECEA00A6BAC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C90949E1C75ECEA00A6BAC1 /* LaunchScreen.storyboard */; };
+		5C9094AB1C75ECEA00A6BAC1 /* gamteepuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9094AA1C75ECEA00A6BAC1 /* gamteepuTests.swift */; };
+		5CC4DB851C75EF54002DD6B5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC4DB841C75EF54002DD6B5 /* Alamofire.framework */; };
+		5CC4DB871C75EF5E002DD6B5 /* Himotoki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC4DB861C75EF5E002DD6B5 /* Himotoki.framework */; };
+		5CC4DB891C75EF67002DD6B5 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC4DB881C75EF67002DD6B5 /* Haneke.framework */; };
+		5CC4DB8B1C75EFF7002DD6B5 /* PostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4DB8A1C75EFF7002DD6B5 /* PostsTableViewController.swift */; };
+		5CC4DB8E1C75F100002DD6B5 /* PostImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CC4DB8D1C75F100002DD6B5 /* PostImageTableViewCell.xib */; };
+		5CC4DB911C75F13C002DD6B5 /* PostImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4DB901C75F13C002DD6B5 /* PostImageTableViewCell.swift */; };
+		5CC4DB941C75F28A002DD6B5 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4DB931C75F28A002DD6B5 /* PostModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5C9094A71C75ECEA00A6BAC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C90948A1C75ECEA00A6BAC1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C9094911C75ECEA00A6BAC1;
+			remoteInfo = gamteepu;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5C9094921C75ECEA00A6BAC1 /* gamteepu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gamteepu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C9094951C75ECEA00A6BAC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5C90949A1C75ECEA00A6BAC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5C90949C1C75ECEA00A6BAC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5C90949F1C75ECEA00A6BAC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5C9094A11C75ECEA00A6BAC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C9094A61C75ECEA00A6BAC1 /* gamteepuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gamteepuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C9094AA1C75ECEA00A6BAC1 /* gamteepuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gamteepuTests.swift; sourceTree = "<group>"; };
+		5C9094AC1C75ECEA00A6BAC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CC4DB841C75EF54002DD6B5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		5CC4DB861C75EF5E002DD6B5 /* Himotoki.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Himotoki.framework; path = Carthage/Build/iOS/Himotoki.framework; sourceTree = "<group>"; };
+		5CC4DB881C75EF67002DD6B5 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = Carthage/Build/iOS/Haneke.framework; sourceTree = "<group>"; };
+		5CC4DB8A1C75EFF7002DD6B5 /* PostsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsTableViewController.swift; sourceTree = "<group>"; };
+		5CC4DB8D1C75F100002DD6B5 /* PostImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostImageTableViewCell.xib; sourceTree = "<group>"; };
+		5CC4DB901C75F13C002DD6B5 /* PostImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageTableViewCell.swift; sourceTree = "<group>"; };
+		5CC4DB931C75F28A002DD6B5 /* PostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5C90948F1C75ECEA00A6BAC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CC4DB891C75EF67002DD6B5 /* Haneke.framework in Frameworks */,
+				5CC4DB871C75EF5E002DD6B5 /* Himotoki.framework in Frameworks */,
+				5CC4DB851C75EF54002DD6B5 /* Alamofire.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C9094A31C75ECEA00A6BAC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5C9094891C75ECEA00A6BAC1 = {
+			isa = PBXGroup;
+			children = (
+				5CC4DB881C75EF67002DD6B5 /* Haneke.framework */,
+				5CC4DB861C75EF5E002DD6B5 /* Himotoki.framework */,
+				5CC4DB841C75EF54002DD6B5 /* Alamofire.framework */,
+				5C9094941C75ECEA00A6BAC1 /* gamteepu */,
+				5C9094A91C75ECEA00A6BAC1 /* gamteepuTests */,
+				5C9094931C75ECEA00A6BAC1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5C9094931C75ECEA00A6BAC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5C9094921C75ECEA00A6BAC1 /* gamteepu.app */,
+				5C9094A61C75ECEA00A6BAC1 /* gamteepuTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5C9094941C75ECEA00A6BAC1 /* gamteepu */ = {
+			isa = PBXGroup;
+			children = (
+				5C9094951C75ECEA00A6BAC1 /* AppDelegate.swift */,
+				5CC4DB8A1C75EFF7002DD6B5 /* PostsTableViewController.swift */,
+				5CC4DB921C75F276002DD6B5 /* Model */,
+				5CC4DB8C1C75F0D8002DD6B5 /* XIBs */,
+				5CC4DB8F1C75F10E002DD6B5 /* Views */,
+				5C9094991C75ECEA00A6BAC1 /* Main.storyboard */,
+				5C90949C1C75ECEA00A6BAC1 /* Assets.xcassets */,
+				5C90949E1C75ECEA00A6BAC1 /* LaunchScreen.storyboard */,
+				5C9094A11C75ECEA00A6BAC1 /* Info.plist */,
+			);
+			path = gamteepu;
+			sourceTree = "<group>";
+		};
+		5C9094A91C75ECEA00A6BAC1 /* gamteepuTests */ = {
+			isa = PBXGroup;
+			children = (
+				5C9094AA1C75ECEA00A6BAC1 /* gamteepuTests.swift */,
+				5C9094AC1C75ECEA00A6BAC1 /* Info.plist */,
+			);
+			path = gamteepuTests;
+			sourceTree = "<group>";
+		};
+		5CC4DB8C1C75F0D8002DD6B5 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				5CC4DB8D1C75F100002DD6B5 /* PostImageTableViewCell.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		5CC4DB8F1C75F10E002DD6B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5CC4DB901C75F13C002DD6B5 /* PostImageTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5CC4DB921C75F276002DD6B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5CC4DB931C75F28A002DD6B5 /* PostModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5C9094911C75ECEA00A6BAC1 /* gamteepu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C9094AF1C75ECEA00A6BAC1 /* Build configuration list for PBXNativeTarget "gamteepu" */;
+			buildPhases = (
+				5C90948E1C75ECEA00A6BAC1 /* Sources */,
+				5C90948F1C75ECEA00A6BAC1 /* Frameworks */,
+				5C9094901C75ECEA00A6BAC1 /* Resources */,
+				5CC4DB831C75EEE7002DD6B5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = gamteepu;
+			productName = gamteepu;
+			productReference = 5C9094921C75ECEA00A6BAC1 /* gamteepu.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5C9094A51C75ECEA00A6BAC1 /* gamteepuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C9094B21C75ECEA00A6BAC1 /* Build configuration list for PBXNativeTarget "gamteepuTests" */;
+			buildPhases = (
+				5C9094A21C75ECEA00A6BAC1 /* Sources */,
+				5C9094A31C75ECEA00A6BAC1 /* Frameworks */,
+				5C9094A41C75ECEA00A6BAC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5C9094A81C75ECEA00A6BAC1 /* PBXTargetDependency */,
+			);
+			name = gamteepuTests;
+			productName = gamteepuTests;
+			productReference = 5C9094A61C75ECEA00A6BAC1 /* gamteepuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5C90948A1C75ECEA00A6BAC1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Atom;
+				TargetAttributes = {
+					5C9094911C75ECEA00A6BAC1 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					5C9094A51C75ECEA00A6BAC1 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 5C9094911C75ECEA00A6BAC1;
+					};
+				};
+			};
+			buildConfigurationList = 5C90948D1C75ECEA00A6BAC1 /* Build configuration list for PBXProject "gamteepu" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5C9094891C75ECEA00A6BAC1;
+			productRefGroup = 5C9094931C75ECEA00A6BAC1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5C9094911C75ECEA00A6BAC1 /* gamteepu */,
+				5C9094A51C75ECEA00A6BAC1 /* gamteepuTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5C9094901C75ECEA00A6BAC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9094A01C75ECEA00A6BAC1 /* LaunchScreen.storyboard in Resources */,
+				5C90949D1C75ECEA00A6BAC1 /* Assets.xcassets in Resources */,
+				5C90949B1C75ECEA00A6BAC1 /* Main.storyboard in Resources */,
+				5CC4DB8E1C75F100002DD6B5 /* PostImageTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C9094A41C75ECEA00A6BAC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5CC4DB831C75EEE7002DD6B5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Himotoki.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Haneke.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5C90948E1C75ECEA00A6BAC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CC4DB911C75F13C002DD6B5 /* PostImageTableViewCell.swift in Sources */,
+				5CC4DB941C75F28A002DD6B5 /* PostModel.swift in Sources */,
+				5C9094961C75ECEA00A6BAC1 /* AppDelegate.swift in Sources */,
+				5CC4DB8B1C75EFF7002DD6B5 /* PostsTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C9094A21C75ECEA00A6BAC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9094AB1C75ECEA00A6BAC1 /* gamteepuTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5C9094A81C75ECEA00A6BAC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C9094911C75ECEA00A6BAC1 /* gamteepu */;
+			targetProxy = 5C9094A71C75ECEA00A6BAC1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5C9094991C75ECEA00A6BAC1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C90949A1C75ECEA00A6BAC1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5C90949E1C75ECEA00A6BAC1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C90949F1C75ECEA00A6BAC1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5C9094AD1C75ECEA00A6BAC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5C9094AE1C75ECEA00A6BAC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5C9094B01C75ECEA00A6BAC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = gamteepu/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.fromatom.gamteepu.gamteepu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5C9094B11C75ECEA00A6BAC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = gamteepu/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.fromatom.gamteepu.gamteepu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5C9094B31C75ECEA00A6BAC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = gamteepuTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.fromatom.gamteepu.gamteepuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gamteepu.app/gamteepu";
+			};
+			name = Debug;
+		};
+		5C9094B41C75ECEA00A6BAC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = gamteepuTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.fromatom.gamteepu.gamteepuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gamteepu.app/gamteepu";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5C90948D1C75ECEA00A6BAC1 /* Build configuration list for PBXProject "gamteepu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C9094AD1C75ECEA00A6BAC1 /* Debug */,
+				5C9094AE1C75ECEA00A6BAC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C9094AF1C75ECEA00A6BAC1 /* Build configuration list for PBXNativeTarget "gamteepu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C9094B01C75ECEA00A6BAC1 /* Debug */,
+				5C9094B11C75ECEA00A6BAC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C9094B21C75ECEA00A6BAC1 /* Build configuration list for PBXNativeTarget "gamteepuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C9094B31C75ECEA00A6BAC1 /* Debug */,
+				5C9094B41C75ECEA00A6BAC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5C90948A1C75ECEA00A6BAC1 /* Project object */;
+}
