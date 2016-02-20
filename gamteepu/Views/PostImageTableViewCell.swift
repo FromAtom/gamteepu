@@ -25,6 +25,7 @@ class PostImageTableViewCell: UITableViewCell {
     }
 
 	override func prepareForReuse() {
+		backgroundColor = UIColor.clearColor()
 		postImageView.hnk_cancelSetImage()
 		postImageView.image = nil
 

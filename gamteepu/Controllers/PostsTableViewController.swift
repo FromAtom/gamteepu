@@ -30,27 +30,10 @@ class PostsTableViewController: UITableViewController, APIModule {
 		return "https://danbooru.donmai.us/posts.json?limit=\(limit)&page=\(page)&tags=rating:s"
 	}
 
-	private func appendPost(post: PostModel) {
-		guard let url = post.previewFileURL where post.fileType != "gif" else {
-			return
-		}
-
-		let fetcher = NetworkFetcher<UIImage>(URL: url)
-		posts.append(post)
-		fetchers.append(fetcher)
-	}
-
-	private func resetPosts() {
-		page = 1
-		posts = []
-		fetchers = []
-	}
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
 		registerNibs()
-
 		setupPullToRefresh()
 
 		Alamofire.request(.GET, endpoint).responseJSON { response in
@@ -75,9 +58,26 @@ class PostsTableViewController: UITableViewController, APIModule {
 		return true
 	}
 
+	private func appendPost(post: PostModel) {
+		guard let url = post.previewFileURL where post.fileType != "gif" else {
+			return
+		}
+
+		let fetcher = NetworkFetcher<UIImage>(URL: url)
+		posts.append(post)
+		fetchers.append(fetcher)
+	}
+
+	private func resetPosts() {
+		page = 1
+		posts = []
+		fetchers = []
+	}
+
 	private func registerNibs() {
 		let nibNames: [String] = [
-			"PostImageTableViewCell"
+			"PostImageTableViewCell",
+			"LoadingCell"
 		]
 
 		for name in nibNames {
@@ -128,15 +128,23 @@ class PostsTableViewController: UITableViewController, APIModule {
 	}
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return posts.count
+		return posts.count + 1
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		let row = indexPath.row
+
+		if row > posts.count - 1 {
+			let cell = tableView.dequeueReusableCellWithIdentifier("LoadingCell", forIndexPath: indexPath) as! LoadingTableViewCell
+			cell.loadingIndicator.startAnimating()
+			return cell
+		}
+
 		guard let cell = tableView.dequeueReusableCellWithIdentifier("PostImageTableViewCell", forIndexPath: indexPath) as? PostImageTableViewCell else {
 			return UITableViewCell()
 		}
 
-		let row = indexPath.row
+
 		cell.displayWithPostModel(posts[row], fetcher: fetchers[row])
 
         return cell
@@ -174,7 +182,7 @@ extension PostsTableViewController {
 	}
 
 	override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-		guard indexPath.row >= posts.count - 1 && posts.count != 0 else {
+		guard indexPath.row >= posts.count - 2 && posts.count != 0 else {
 			return
 		}
 
@@ -182,7 +190,12 @@ extension PostsTableViewController {
 	}
 
 	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		let post = posts[indexPath.row]
+		let row = indexPath.row
+		if row > posts.count - 1 {
+			return 60
+		}
+
+		let post = posts[row]
 		return PostImageTableViewCell.heightWithModel(post, inTableView: tableView)
 	}
 }
