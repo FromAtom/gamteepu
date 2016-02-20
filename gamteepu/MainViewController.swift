@@ -17,18 +17,21 @@ class MainViewController: UIViewController {
 		navigationController?.navigationBarHidden = true
 
 		let postsTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PostsTableViewController") as! PostsTableViewController
-		postsTableViewController.title = "POSTS"
+		postsTableViewController.title = "SAFE"
 		let hotTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("HotTableViewController") as! HotTableViewController
 		hotTableViewController.title = "HOT"
-		let viewControllers = [postsTableViewController, hotTableViewController]
+		let explicitTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ExplicitTableViewController") as! ExplicitTableViewController
+		explicitTableViewController.title = "R18"
+
+		let viewControllers = [postsTableViewController, hotTableViewController, explicitTableViewController]
 
 		let options = PagingMenuOptions()
 		options.menuHeight = 40
 		options.font = UIFont.systemFontOfSize(14)
-		options.selectedFont = UIFont.systemFontOfSize(16, weight: 1.2)
-		options.selectedTextColor = ColorSet.Primary.UIColor
+		options.selectedFont = UIFont.systemFontOfSize(14, weight: 1.1)
+		options.selectedTextColor = ColorSet.White.UIColor
 		options.menuDisplayMode = .SegmentedControl
-		options.menuItemMode = .Underline(height: 3.0, color: ColorSet.Primary.UIColor, horizontalPadding: 0, verticalPadding: 0)
+		options.menuItemMode = .RoundRect(radius: 15, horizontalPadding: 20.0, verticalPadding: 5.0, selectedColor: ColorSet.R18.UIColor)
 
 		let pagingMenuController = self.childViewControllers.first as! PagingMenuController
 		pagingMenuController.delegate = self
@@ -38,14 +41,14 @@ class MainViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
+	override func prefersStatusBarHidden() -> Bool {
+		return true
+	}
+
 }
 
 extension MainViewController: PagingMenuControllerDelegate {
-	func willMoveToMenuPage(page: Int) {
-
-	}
-
-	func didMoveToMenuPage(page: Int) {
-
-	}
+	func willMoveToMenuPage(page: Int) { }
+	func didMoveToMenuPage(page: Int) { }
 }

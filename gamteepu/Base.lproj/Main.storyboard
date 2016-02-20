@@ -54,6 +54,34 @@
             </objects>
             <point key="canvasLocation" x="583" y="352"/>
         </scene>
+        <!--Explicit Table View Controller-->
+        <scene sceneID="KUv-BG-vbq">
+            <objects>
+                <tableViewController storyboardIdentifier="ExplicitTableViewController" id="0rE-YN-lhG" customClass="ExplicitTableViewController" customModule="gamteepu" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="YIo-UL-uvN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CgN-4q-zhi">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CgN-4q-zhi" id="1bb-15-IAX">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0rE-YN-lhG" id="rNY-bU-BdK"/>
+                            <outlet property="delegate" destination="0rE-YN-lhG" id="KRt-s4-Veh"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kSx-qG-DYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="65" y="-297"/>
+        </scene>
         <!--Hot Table View Controller-->
         <scene sceneID="Nlj-pR-5kZ">
             <objects>
@@ -94,6 +122,10 @@
         <scene sceneID="oXD-HF-Q3A">
             <objects>
                 <viewController id="AJm-x5-6Qt" customClass="PagingMenuController" customModule="PagingMenuController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lz8-rc-5TO"/>
+                        <viewControllerLayoutGuide type="bottom" id="QPU-Rl-FMt"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vua-I4-hrF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -12,6 +12,7 @@ import Haneke
 class PostImageTableViewCell: UITableViewCell {
 	@IBOutlet weak var postImageView: UIImageView!
 
+	var targetPost: PostModel!
 	var previewImageFetcher: NetworkFetcher<UIImage>?
 	var largeImageFetcher: NetworkFetcher<UIImage>?
 
@@ -41,35 +42,21 @@ class PostImageTableViewCell: UITableViewCell {
 		return ceil((tableView.bounds.width * CGFloat(height)) / CGFloat(width))
 	}
 
-	func startLargeImageFetch() {
-		guard let fetcher = largeImageFetcher else {
-			return
-		}
-
-		let cache = Shared.imageCache
-		cache.fetch(fetcher: fetcher).onSuccess { [weak self] image in
-			self?.previewImageFetcher?.cancelFetch()
-			self?.postImageView.hnk_cancelSetImage()
-			self?.postImageView.image = image
-		}
-	}
-
-	func stopLargeImageFetch() {
-		largeImageFetcher?.cancelFetch()
-	}
-
 	func displayWithPostModel(post: PostModel, fetcher: NetworkFetcher<UIImage>) {
+		targetPost = post
 		previewImageFetcher = fetcher
+
 		if let previewImageFetcher = previewImageFetcher {
 			postImageView.hnk_setImageFromFetcher(previewImageFetcher, placeholder: nil, format: nil, failure: nil, success: nil)
 		}
 
 		if let url = post.largeFileURL {
+			largeImageFetcher = NetworkFetcher<UIImage>(URL: url)
+			guard let largeImageFetcher = largeImageFetcher else {
+				return
+			}
 			let cache = Shared.imageCache
-			let fetcher = NetworkFetcher<UIImage>(URL: url)
-			largeImageFetcher = fetcher
-
-			cache.fetch(fetcher: fetcher).onSuccess { [weak self] image in
+			cache.fetch(fetcher: largeImageFetcher).onSuccess { [weak self] image in
 				self?.previewImageFetcher?.cancelFetch()
 				self?.postImageView.hnk_cancelSetImage()
 				self?.postImageView.image = image

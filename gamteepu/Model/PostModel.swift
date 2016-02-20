@@ -16,6 +16,7 @@ struct PostModel: Decodable {
 	let id: Int
 	let imageWidth: Int
 	let imageHeight: Int
+	let fileType: String
 
 	let previewFilePath: String?
 	let largeFilePath: String?
@@ -23,6 +24,7 @@ struct PostModel: Decodable {
 	let previewFileURL: NSURL?
 	let largeFileURL: NSURL?
 	let originalFileURL: NSURL?
+
 
 	let artist: String?
 	static let endpoint = "https://danbooru.donmai.us"
@@ -41,6 +43,7 @@ struct PostModel: Decodable {
 			id: e <| "id",
 			imageWidth: e <| "image_width",
 			imageHeight: e <| "image_height",
+			fileType: e <| "file_ext",
 			previewFilePath: previewFilePath,
 			largeFilePath: largeFilePath,
 			originalFilePath: originalFilePath,

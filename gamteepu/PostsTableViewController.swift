@@ -24,13 +24,14 @@ class PostsTableViewController: UITableViewController, APIModule {
 	var posts: [PostModel] = []
 	var fetchers: [NetworkFetcher<UIImage>] = []
 	var isLoadgind = false
+	var gifRefreshControl: GIFRefreshControl!
 
 	var endpoint: String {
-		return "https://danbooru.donmai.us/posts.json?limit=\(limit)&page=\(page)"
+		return "https://danbooru.donmai.us/posts.json?limit=\(limit)&page=\(page)&tags=rating:s"
 	}
 
 	private func appendPost(post: PostModel) {
-		guard let url = post.previewFileURL else {
+		guard let url = post.previewFileURL where post.fileType != "gif" else {
 			return
 		}
 
@@ -39,11 +40,18 @@ class PostsTableViewController: UITableViewController, APIModule {
 		fetchers.append(fetcher)
 	}
 
+	private func resetPosts() {
+		page = 1
+		posts = []
+		fetchers = []
+	}
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		title = "POSTS"
 		registerNibs()
+
+		setupPullToRefresh()
 
 		Alamofire.request(.GET, endpoint).responseJSON { response in
 			guard let json = response.result.value as? [[String : AnyObject]] else {
@@ -63,6 +71,10 @@ class PostsTableViewController: UITableViewController, APIModule {
 		}
 	}
 
+	override func prefersStatusBarHidden() -> Bool {
+		return true
+	}
+
 	private func registerNibs() {
 		let nibNames: [String] = [
 			"PostImageTableViewCell"
@@ -70,6 +82,39 @@ class PostsTableViewController: UITableViewController, APIModule {
 
 		for name in nibNames {
 			tableView.registerNib(UINib(nibName: name, bundle: nil), forCellReuseIdentifier: name)
+		}
+	}
+
+	private func setupPullToRefresh() {
+		let URL = NSURL(string: "https://dl.dropboxusercontent.com/u/14483152/progress.gif")
+		let data = NSData(contentsOfURL: URL!)
+
+		gifRefreshControl = GIFRefreshControl()
+		gifRefreshControl.animatedImage = GIFAnimatedImage(data: data!)
+		gifRefreshControl.contentMode = .ScaleAspectFit
+
+		gifRefreshControl.addTarget(self, action: "refresh", forControlEvents: .ValueChanged)
+		tableView.addSubview(gifRefreshControl)
+	}
+
+	func refresh() {
+		resetPosts()
+		Alamofire.request(.GET, endpoint).responseJSON { response in
+			guard let json = response.result.value as? [[String : AnyObject]] else {
+				return
+			}
+			
+			for object in json {
+				do {
+					let post = try decode(object) as PostModel
+					self.appendPost(post)
+				}
+				catch {
+				}
+			}
+
+			self.tableView.reloadData()
+			self.gifRefreshControl.endRefreshing()
 		}
 	}
 
