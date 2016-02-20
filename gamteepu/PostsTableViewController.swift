@@ -123,8 +123,8 @@ extension PostsTableViewController {
 				}
 			}
 
-			self.isLoadgind = false
 			self.tableView.reloadData()
+			self.isLoadgind = false
 		}
 	}
 

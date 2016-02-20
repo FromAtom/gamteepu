@@ -12,7 +12,8 @@ import Haneke
 class PostImageTableViewCell: UITableViewCell {
 	@IBOutlet weak var postImageView: UIImageView!
 
-	var fetcher: NetworkFetcher<UIImage>?
+	var previewImageFetcher: NetworkFetcher<UIImage>?
+	var largeImageFetcher: NetworkFetcher<UIImage>?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,29 +26,51 @@ class PostImageTableViewCell: UITableViewCell {
 	override func prepareForReuse() {
 		postImageView.hnk_cancelSetImage()
 		postImageView.image = nil
-		fetcher?.cancelFetch()
+
+		previewImageFetcher?.cancelFetch()
+		previewImageFetcher = nil
+
+		largeImageFetcher?.cancelFetch()
+		largeImageFetcher = nil
 	}
 
 	class func heightWithModel(post: PostModel, inTableView tableView: UITableView) -> CGFloat {
-		if let height = post.imageHeight, let width = post.imageWidth {
-			return ceil((tableView.bounds.width * CGFloat(height)) / CGFloat(width))
+		let height = post.imageHeight
+		let width = post.imageWidth
+
+		return ceil((tableView.bounds.width * CGFloat(height)) / CGFloat(width))
+	}
+
+	func startLargeImageFetch() {
+		guard let fetcher = largeImageFetcher else {
+			return
 		}
 
-		return 100
+		let cache = Shared.imageCache
+		cache.fetch(fetcher: fetcher).onSuccess { [weak self] image in
+			self?.previewImageFetcher?.cancelFetch()
+			self?.postImageView.hnk_cancelSetImage()
+			self?.postImageView.image = image
+		}
+	}
+
+	func stopLargeImageFetch() {
+		largeImageFetcher?.cancelFetch()
 	}
 
 	func displayWithPostModel(post: PostModel, fetcher: NetworkFetcher<UIImage>) {
-		self.fetcher = fetcher
-		if let _ = self.fetcher {
-			postImageView.hnk_setImageFromFetcher(self.fetcher!, placeholder: nil, format: nil, failure: nil, success: nil)
+		previewImageFetcher = fetcher
+		if let previewImageFetcher = previewImageFetcher {
+			postImageView.hnk_setImageFromFetcher(previewImageFetcher, placeholder: nil, format: nil, failure: nil, success: nil)
 		}
 
 		if let url = post.largeFileURL {
 			let cache = Shared.imageCache
 			let fetcher = NetworkFetcher<UIImage>(URL: url)
+			largeImageFetcher = fetcher
 
 			cache.fetch(fetcher: fetcher).onSuccess { [weak self] image in
-				self?.fetcher?.cancelFetch()
+				self?.previewImageFetcher?.cancelFetch()
 				self?.postImageView.hnk_cancelSetImage()
 				self?.postImageView.image = image
 			}

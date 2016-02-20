@@ -14,8 +14,8 @@ import Haneke
 
 struct PostModel: Decodable {
 	let id: Int
-	let imageWidth: Int?
-	let imageHeight: Int?
+	let imageWidth: Int
+	let imageHeight: Int
 
 	let previewFilePath: String?
 	let largeFilePath: String?
@@ -39,8 +39,8 @@ struct PostModel: Decodable {
 
 		return try PostModel(
 			id: e <| "id",
-			imageWidth: e <|? "image_width",
-			imageHeight: e <|? "image_height",
+			imageWidth: e <| "image_width",
+			imageHeight: e <| "image_height",
 			previewFilePath: previewFilePath,
 			largeFilePath: largeFilePath,
 			originalFilePath: originalFilePath,
