@@ -14,19 +14,16 @@
 		5C9094AB1C75ECEA00A6BAC1 /* gamteepuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9094AA1C75ECEA00A6BAC1 /* gamteepuTests.swift */; };
 		5C9DC53A1C7743F900A27ACD /* PagingMenuController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9DC5391C7743F900A27ACD /* PagingMenuController.framework */; };
 		5C9DC53C1C77465A00A27ACD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9DC53B1C77465A00A27ACD /* MainViewController.swift */; };
-		5C9DC53E1C77489E00A27ACD /* HotTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9DC53D1C77489E00A27ACD /* HotTableViewController.swift */; };
 		5C9DC5401C774DBC00A27ACD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9DC53F1C774DBC00A27ACD /* UIColorExtension.swift */; };
 		5CC4DB851C75EF54002DD6B5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC4DB841C75EF54002DD6B5 /* Alamofire.framework */; };
 		5CC4DB871C75EF5E002DD6B5 /* Himotoki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC4DB861C75EF5E002DD6B5 /* Himotoki.framework */; };
 		5CC4DB891C75EF67002DD6B5 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC4DB881C75EF67002DD6B5 /* Haneke.framework */; };
-		5CC4DB8B1C75EFF7002DD6B5 /* PostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4DB8A1C75EFF7002DD6B5 /* PostsTableViewController.swift */; };
-		5CC4DB8E1C75F100002DD6B5 /* PostImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CC4DB8D1C75F100002DD6B5 /* PostImageTableViewCell.xib */; };
-		5CC4DB911C75F13C002DD6B5 /* PostImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4DB901C75F13C002DD6B5 /* PostImageTableViewCell.swift */; };
 		5CC4DB941C75F28A002DD6B5 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4DB931C75F28A002DD6B5 /* PostModel.swift */; };
 		5CF58B501D12BA7000BE7491 /* UIViewAnimationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF58B4F1D12BA7000BE7491 /* UIViewAnimationExtension.swift */; };
-		DC8DDFB31C78856700C76C92 /* ExplicitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8DDFB21C78856700C76C92 /* ExplicitTableViewController.swift */; };
-		DC8DDFB61C7888A600C76C92 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8DDFB51C7888A600C76C92 /* LoadingCell.xib */; };
-		DC8DDFB81C7888E400C76C92 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8DDFB71C7888E400C76C92 /* LoadingTableViewCell.swift */; };
+		5CF58B521D12C58D00BE7491 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CF58B511D12C58D00BE7491 /* PostCollectionViewCell.xib */; };
+		5CF58B541D12C5AC00BE7491 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF58B531D12C5AC00BE7491 /* PostCollectionViewCell.swift */; };
+		5CF58B561D12C5D000BE7491 /* PostsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF58B551D12C5CF00BE7491 /* PostsCollectionViewController.swift */; };
+		5CF58B591D12D14700BE7491 /* APIModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF58B581D12D14700BE7491 /* APIModule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,19 +48,16 @@
 		5C9094AC1C75ECEA00A6BAC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C9DC5391C7743F900A27ACD /* PagingMenuController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PagingMenuController.framework; path = Carthage/Build/iOS/PagingMenuController.framework; sourceTree = "<group>"; };
 		5C9DC53B1C77465A00A27ACD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		5C9DC53D1C77489E00A27ACD /* HotTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotTableViewController.swift; sourceTree = "<group>"; };
 		5C9DC53F1C774DBC00A27ACD /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		5CC4DB841C75EF54002DD6B5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		5CC4DB861C75EF5E002DD6B5 /* Himotoki.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Himotoki.framework; path = Carthage/Build/iOS/Himotoki.framework; sourceTree = "<group>"; };
 		5CC4DB881C75EF67002DD6B5 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = Carthage/Build/iOS/Haneke.framework; sourceTree = "<group>"; };
-		5CC4DB8A1C75EFF7002DD6B5 /* PostsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsTableViewController.swift; sourceTree = "<group>"; };
-		5CC4DB8D1C75F100002DD6B5 /* PostImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostImageTableViewCell.xib; sourceTree = "<group>"; };
-		5CC4DB901C75F13C002DD6B5 /* PostImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageTableViewCell.swift; sourceTree = "<group>"; };
 		5CC4DB931C75F28A002DD6B5 /* PostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		5CF58B4F1D12BA7000BE7491 /* UIViewAnimationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAnimationExtension.swift; sourceTree = "<group>"; };
-		DC8DDFB21C78856700C76C92 /* ExplicitTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplicitTableViewController.swift; sourceTree = "<group>"; };
-		DC8DDFB51C7888A600C76C92 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
-		DC8DDFB71C7888E400C76C92 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
+		5CF58B511D12C58D00BE7491 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
+		5CF58B531D12C5AC00BE7491 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		5CF58B551D12C5CF00BE7491 /* PostsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsCollectionViewController.swift; sourceTree = "<group>"; };
+		5CF58B581D12D14700BE7491 /* APIModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIModule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +109,7 @@
 			children = (
 				5C9094951C75ECEA00A6BAC1 /* AppDelegate.swift */,
 				5C9DC53B1C77465A00A27ACD /* MainViewController.swift */,
+				5CF58B571D12D12D00BE7491 /* Protocols */,
 				5CC4DB921C75F276002DD6B5 /* Model */,
 				5CC4DB8C1C75F0D8002DD6B5 /* XIBs */,
 				5CC4DB8F1C75F10E002DD6B5 /* Views */,
@@ -140,8 +135,7 @@
 		5CC4DB8C1C75F0D8002DD6B5 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
-				5CC4DB8D1C75F100002DD6B5 /* PostImageTableViewCell.xib */,
-				DC8DDFB51C7888A600C76C92 /* LoadingCell.xib */,
+				5CF58B511D12C58D00BE7491 /* PostCollectionViewCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -149,8 +143,7 @@
 		5CC4DB8F1C75F10E002DD6B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5CC4DB901C75F13C002DD6B5 /* PostImageTableViewCell.swift */,
-				DC8DDFB71C7888E400C76C92 /* LoadingTableViewCell.swift */,
+				5CF58B531D12C5AC00BE7491 /* PostCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,12 +166,18 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		5CF58B571D12D12D00BE7491 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5CF58B581D12D14700BE7491 /* APIModule.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		DC8DDFB41C78879D00C76C92 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5CC4DB8A1C75EFF7002DD6B5 /* PostsTableViewController.swift */,
-				5C9DC53D1C77489E00A27ACD /* HotTableViewController.swift */,
-				DC8DDFB21C78856700C76C92 /* ExplicitTableViewController.swift */,
+				5CF58B551D12C5CF00BE7491 /* PostsCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -268,9 +267,8 @@
 			files = (
 				5C9094A01C75ECEA00A6BAC1 /* LaunchScreen.storyboard in Resources */,
 				5C90949D1C75ECEA00A6BAC1 /* Assets.xcassets in Resources */,
+				5CF58B521D12C58D00BE7491 /* PostCollectionViewCell.xib in Resources */,
 				5C90949B1C75ECEA00A6BAC1 /* Main.storyboard in Resources */,
-				DC8DDFB61C7888A600C76C92 /* LoadingCell.xib in Resources */,
-				5CC4DB8E1C75F100002DD6B5 /* PostImageTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,15 +306,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC8DDFB81C7888E400C76C92 /* LoadingTableViewCell.swift in Sources */,
-				5CC4DB911C75F13C002DD6B5 /* PostImageTableViewCell.swift in Sources */,
-				DC8DDFB31C78856700C76C92 /* ExplicitTableViewController.swift in Sources */,
 				5C9DC5401C774DBC00A27ACD /* UIColorExtension.swift in Sources */,
 				5CC4DB941C75F28A002DD6B5 /* PostModel.swift in Sources */,
-				5C9DC53E1C77489E00A27ACD /* HotTableViewController.swift in Sources */,
+				5CF58B591D12D14700BE7491 /* APIModule.swift in Sources */,
 				5C9094961C75ECEA00A6BAC1 /* AppDelegate.swift in Sources */,
 				5CF58B501D12BA7000BE7491 /* UIViewAnimationExtension.swift in Sources */,
-				5CC4DB8B1C75EFF7002DD6B5 /* PostsTableViewController.swift in Sources */,
+				5CF58B541D12C5AC00BE7491 /* PostCollectionViewCell.swift in Sources */,
+				5CF58B561D12C5D000BE7491 /* PostsCollectionViewController.swift in Sources */,
 				5C9DC53C1C77465A00A27ACD /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
