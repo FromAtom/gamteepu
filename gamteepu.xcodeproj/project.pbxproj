@@ -23,7 +23,7 @@
 		5CC4DB8E1C75F100002DD6B5 /* PostImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CC4DB8D1C75F100002DD6B5 /* PostImageTableViewCell.xib */; };
 		5CC4DB911C75F13C002DD6B5 /* PostImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4DB901C75F13C002DD6B5 /* PostImageTableViewCell.swift */; };
 		5CC4DB941C75F28A002DD6B5 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4DB931C75F28A002DD6B5 /* PostModel.swift */; };
-		DC8DDFB11C786C8400C76C92 /* GIFRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8DDFB01C786C8400C76C92 /* GIFRefreshControl.swift */; };
+		5CF58B501D12BA7000BE7491 /* UIViewAnimationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF58B4F1D12BA7000BE7491 /* UIViewAnimationExtension.swift */; };
 		DC8DDFB31C78856700C76C92 /* ExplicitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8DDFB21C78856700C76C92 /* ExplicitTableViewController.swift */; };
 		DC8DDFB61C7888A600C76C92 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8DDFB51C7888A600C76C92 /* LoadingCell.xib */; };
 		DC8DDFB81C7888E400C76C92 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8DDFB71C7888E400C76C92 /* LoadingTableViewCell.swift */; };
@@ -60,7 +60,7 @@
 		5CC4DB8D1C75F100002DD6B5 /* PostImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostImageTableViewCell.xib; sourceTree = "<group>"; };
 		5CC4DB901C75F13C002DD6B5 /* PostImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageTableViewCell.swift; sourceTree = "<group>"; };
 		5CC4DB931C75F28A002DD6B5 /* PostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
-		DC8DDFB01C786C8400C76C92 /* GIFRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFRefreshControl.swift; sourceTree = "<group>"; };
+		5CF58B4F1D12BA7000BE7491 /* UIViewAnimationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAnimationExtension.swift; sourceTree = "<group>"; };
 		DC8DDFB21C78856700C76C92 /* ExplicitTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplicitTableViewController.swift; sourceTree = "<group>"; };
 		DC8DDFB51C7888A600C76C92 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		DC8DDFB71C7888E400C76C92 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
@@ -114,16 +114,15 @@
 			isa = PBXGroup;
 			children = (
 				5C9094951C75ECEA00A6BAC1 /* AppDelegate.swift */,
-				DC8DDFB01C786C8400C76C92 /* GIFRefreshControl.swift */,
+				5C9DC53B1C77465A00A27ACD /* MainViewController.swift */,
 				5CC4DB921C75F276002DD6B5 /* Model */,
 				5CC4DB8C1C75F0D8002DD6B5 /* XIBs */,
 				5CC4DB8F1C75F10E002DD6B5 /* Views */,
-				5C9094991C75ECEA00A6BAC1 /* Main.storyboard */,
 				DC8DDFB41C78879D00C76C92 /* Controllers */,
-				5C9DC53B1C77465A00A27ACD /* MainViewController.swift */,
-				5C9DC53F1C774DBC00A27ACD /* UIColorExtension.swift */,
-				5C90949C1C75ECEA00A6BAC1 /* Assets.xcassets */,
+				5CF58B4E1D12BA2D00BE7491 /* Utilities */,
 				5C90949E1C75ECEA00A6BAC1 /* LaunchScreen.storyboard */,
+				5C9094991C75ECEA00A6BAC1 /* Main.storyboard */,
+				5C90949C1C75ECEA00A6BAC1 /* Assets.xcassets */,
 				5C9094A11C75ECEA00A6BAC1 /* Info.plist */,
 			);
 			path = gamteepu;
@@ -161,7 +160,17 @@
 			children = (
 				5CC4DB931C75F28A002DD6B5 /* PostModel.swift */,
 			);
-			path = Model;
+			name = Model;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5CF58B4E1D12BA2D00BE7491 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5C9DC53F1C774DBC00A27ACD /* UIColorExtension.swift */,
+				5CF58B4F1D12BA7000BE7491 /* UIViewAnimationExtension.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		DC8DDFB41C78879D00C76C92 /* Controllers */ = {
@@ -300,13 +309,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC8DDFB81C7888E400C76C92 /* LoadingTableViewCell.swift in Sources */,
-				DC8DDFB11C786C8400C76C92 /* GIFRefreshControl.swift in Sources */,
 				5CC4DB911C75F13C002DD6B5 /* PostImageTableViewCell.swift in Sources */,
 				DC8DDFB31C78856700C76C92 /* ExplicitTableViewController.swift in Sources */,
 				5C9DC5401C774DBC00A27ACD /* UIColorExtension.swift in Sources */,
 				5CC4DB941C75F28A002DD6B5 /* PostModel.swift in Sources */,
 				5C9DC53E1C77489E00A27ACD /* HotTableViewController.swift in Sources */,
 				5C9094961C75ECEA00A6BAC1 /* AppDelegate.swift in Sources */,
+				5CF58B501D12BA7000BE7491 /* UIViewAnimationExtension.swift in Sources */,
 				5CC4DB8B1C75EFF7002DD6B5 /* PostsTableViewController.swift in Sources */,
 				5C9DC53C1C77465A00A27ACD /* MainViewController.swift in Sources */,
 			);

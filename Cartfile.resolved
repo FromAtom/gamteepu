@@ -1,4 +1,4 @@
-github "Alamofire/Alamofire" "3.2.0"
+github "Alamofire/Alamofire" "3.4.1"
 github "Haneke/HanekeSwift" "v0.10.1"
-github "ikesyo/Himotoki" "1.4.0"
-github "kitasuke/PagingMenuController" "0.7.9"
+github "ikesyo/Himotoki" "1.7.0"
+github "kitasuke/PagingMenuController" "1.1.1"

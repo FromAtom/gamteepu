@@ -22,9 +22,7 @@ class PostsTableViewController: UITableViewController, APIModule {
 	let limit = 20
 	var page = 1
 	var posts: [PostModel] = []
-	var fetchers: [NetworkFetcher<UIImage>] = []
 	var isLoadgind = false
-	var gifRefreshControl: GIFRefreshControl!
 
 	var endpoint: String {
 		return "https://danbooru.donmai.us/posts.json?limit=\(limit)&page=\(page)&tags=rating:s"
@@ -34,8 +32,19 @@ class PostsTableViewController: UITableViewController, APIModule {
         super.viewDidLoad()
 
 		registerNibs()
-		setupPullToRefresh()
+		refresh()
+	}
 
+	override func prefersStatusBarHidden() -> Bool {
+		return true
+	}
+
+}
+
+extension PostsTableViewController {
+
+	func refresh() {
+		resetPosts()
 		Alamofire.request(.GET, endpoint).responseJSON { response in
 			guard let json = response.result.value as? [[String : AnyObject]] else {
 				return
@@ -43,7 +52,7 @@ class PostsTableViewController: UITableViewController, APIModule {
 
 			for object in json {
 				do {
-					let post = try decode(object) as PostModel
+					let post = try decodeValue(object) as PostModel
 					self.appendPost(post)
 				}
 				catch {
@@ -54,9 +63,9 @@ class PostsTableViewController: UITableViewController, APIModule {
 		}
 	}
 
-	override func prefersStatusBarHidden() -> Bool {
-		return true
-	}
+}
+
+private extension PostsTableViewController {
 
 	private func appendPost(post: PostModel) {
 		guard let url = post.previewFileURL where post.fileType != "gif" else {
@@ -65,13 +74,11 @@ class PostsTableViewController: UITableViewController, APIModule {
 
 		let fetcher = NetworkFetcher<UIImage>(URL: url)
 		posts.append(post)
-		fetchers.append(fetcher)
 	}
 
 	private func resetPosts() {
 		page = 1
 		posts = []
-		fetchers = []
 	}
 
 	private func registerNibs() {
@@ -84,54 +91,17 @@ class PostsTableViewController: UITableViewController, APIModule {
 			tableView.registerNib(UINib(nibName: name, bundle: nil), forCellReuseIdentifier: name)
 		}
 	}
+	
+}
 
-	private func setupPullToRefresh() {
-		let URL = NSURL(string: "https://dl.dropboxusercontent.com/u/14483152/progress.gif")
-		let data = NSData(contentsOfURL: URL!)
+// UITableViewDataSource
+extension PostsTableViewController {
 
-		gifRefreshControl = GIFRefreshControl()
-		gifRefreshControl.animatedImage = GIFAnimatedImage(data: data!)
-		gifRefreshControl.contentMode = .ScaleAspectFit
-
-		gifRefreshControl.addTarget(self, action: "refresh", forControlEvents: .ValueChanged)
-		tableView.addSubview(gifRefreshControl)
-	}
-
-	func refresh() {
-		resetPosts()
-		Alamofire.request(.GET, endpoint).responseJSON { response in
-			guard let json = response.result.value as? [[String : AnyObject]] else {
-				return
-			}
-			
-			for object in json {
-				do {
-					let post = try decode(object) as PostModel
-					self.appendPost(post)
-				}
-				catch {
-				}
-			}
-
-			self.tableView.reloadData()
-			self.gifRefreshControl.endRefreshing()
-		}
-	}
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
-    }
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-	}
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return posts.count + 1
-    }
+	}
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let row = indexPath.row
 
 		if row > posts.count - 1 {
@@ -145,10 +115,10 @@ class PostsTableViewController: UITableViewController, APIModule {
 		}
 
 
-		cell.displayWithPostModel(posts[row], fetcher: fetchers[row])
+		cell.displayWithPostModel(posts[row])
 
-        return cell
-    }
+		return cell
+	}
 
 }
 
@@ -169,7 +139,7 @@ extension PostsTableViewController {
 
 			for object in json {
 				do {
-					let post = try decode(object) as PostModel
+					let post = try decodeValue(object) as PostModel
 					self.appendPost(post)
 				}
 				catch {
@@ -200,40 +170,4 @@ extension PostsTableViewController {
 	}
 }
 
-
-enum FadeType: NSTimeInterval {
-	case Fast = 0.1
-	case Normal = 0.5
-	case Slow = 1.0
-}
-
-extension UIView {
-	func fadeIn(type: FadeType = .Fast, completion: (() -> ())? = nil) {
-		fadeInWithDurasion(type.rawValue, completion: completion)
-	}
-
-	func fadeInWithDurasion(duration: NSTimeInterval = FadeType.Slow.rawValue, completion: (() -> ())? = nil) {
-		alpha = 0
-		hidden = false
-		UIView.animateWithDuration(duration, animations: {
-			self.alpha = 1
-			}) { finished in
-				completion?()
-		}
-	}
-
-	func fadeOut(type: FadeType = .Fast, completion: (() -> ())? = nil) {
-		fadeOutWithDuration(type.rawValue, completion: completion)
-	}
-
-	func fadeOutWithDuration(duration: NSTimeInterval = FadeType.Slow.rawValue, completion: (() -> ())? = nil) {
-		UIView.animateWithDuration(duration, animations: {
-			self.alpha = 0
-			}) { [weak self] finished in
-				self?.hidden = true
-				self?.alpha = 1
-				completion?()
-		}
-	}
-}
 
