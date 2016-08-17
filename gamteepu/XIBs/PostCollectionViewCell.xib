@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,16 +15,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Urk-SZ-ybW">
-                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                        <rect key="frame" x="4" y="4" width="102" height="102"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Urk-SZ-ybW" secondAttribute="bottom" id="7fZ-bc-bq9"/>
-                <constraint firstAttribute="trailing" secondItem="Urk-SZ-ybW" secondAttribute="trailing" id="ECr-rM-C00"/>
-                <constraint firstItem="Urk-SZ-ybW" firstAttribute="top" secondItem="wii-Df-AmU" secondAttribute="top" id="Qas-k9-NQe"/>
-                <constraint firstItem="Urk-SZ-ybW" firstAttribute="leading" secondItem="wii-Df-AmU" secondAttribute="leading" id="kX7-yc-dt9"/>
+                <constraint firstAttribute="bottom" secondItem="Urk-SZ-ybW" secondAttribute="bottom" constant="4" id="7fZ-bc-bq9"/>
+                <constraint firstAttribute="trailing" secondItem="Urk-SZ-ybW" secondAttribute="trailing" constant="4" id="ECr-rM-C00"/>
+                <constraint firstItem="Urk-SZ-ybW" firstAttribute="top" secondItem="wii-Df-AmU" secondAttribute="top" constant="4" id="Qas-k9-NQe"/>
+                <constraint firstItem="Urk-SZ-ybW" firstAttribute="leading" secondItem="wii-Df-AmU" secondAttribute="leading" constant="4" id="kX7-yc-dt9"/>
             </constraints>
             <size key="customSize" width="110" height="110"/>
             <connections>

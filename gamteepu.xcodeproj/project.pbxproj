@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C0836511D643B5200D95ACB /* PostDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C0836501D643B5200D95ACB /* PostDetailViewController.storyboard */; };
+		5C0836531D643B9900D95ACB /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0836521D643B9900D95ACB /* PostDetailViewController.swift */; };
 		5C9094961C75ECEA00A6BAC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9094951C75ECEA00A6BAC1 /* AppDelegate.swift */; };
 		5C90949B1C75ECEA00A6BAC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C9094991C75ECEA00A6BAC1 /* Main.storyboard */; };
 		5C90949D1C75ECEA00A6BAC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C90949C1C75ECEA00A6BAC1 /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C0836501D643B5200D95ACB /* PostDetailViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PostDetailViewController.storyboard; sourceTree = "<group>"; };
+		5C0836521D643B9900D95ACB /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		5C9094921C75ECEA00A6BAC1 /* gamteepu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gamteepu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9094951C75ECEA00A6BAC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C90949A1C75ECEA00A6BAC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				5CF58B4E1D12BA2D00BE7491 /* Utilities */,
 				5C90949E1C75ECEA00A6BAC1 /* LaunchScreen.storyboard */,
 				5C9094991C75ECEA00A6BAC1 /* Main.storyboard */,
+				5C0836501D643B5200D95ACB /* PostDetailViewController.storyboard */,
 				5C90949C1C75ECEA00A6BAC1 /* Assets.xcassets */,
 				5C9094A11C75ECEA00A6BAC1 /* Info.plist */,
 			);
@@ -178,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				5CF58B551D12C5CF00BE7491 /* PostsCollectionViewController.swift */,
+				5C0836521D643B9900D95ACB /* PostDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -269,6 +275,7 @@
 				5C90949D1C75ECEA00A6BAC1 /* Assets.xcassets in Resources */,
 				5CF58B521D12C58D00BE7491 /* PostCollectionViewCell.xib in Resources */,
 				5C90949B1C75ECEA00A6BAC1 /* Main.storyboard in Resources */,
+				5C0836511D643B5200D95ACB /* PostDetailViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +317,7 @@
 				5CC4DB941C75F28A002DD6B5 /* PostModel.swift in Sources */,
 				5CF58B591D12D14700BE7491 /* APIModule.swift in Sources */,
 				5C9094961C75ECEA00A6BAC1 /* AppDelegate.swift in Sources */,
+				5C0836531D643B9900D95ACB /* PostDetailViewController.swift in Sources */,
 				5CF58B501D12BA7000BE7491 /* UIViewAnimationExtension.swift in Sources */,
 				5CF58B541D12C5AC00BE7491 /* PostCollectionViewCell.swift in Sources */,
 				5CF58B561D12C5D000BE7491 /* PostsCollectionViewController.swift in Sources */,

@@ -30,6 +30,10 @@ class PostsCollectionViewController: UICollectionViewController, APIModule {
 		refresh()
     }
 
+}
+
+extension PostsCollectionViewController {
+
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
@@ -46,6 +50,14 @@ class PostsCollectionViewController: UICollectionViewController, APIModule {
 		}
 
 		loadNextPosts()
+	}
+
+	override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		let index = indexPath.row
+		let post = posts[index]
+		let vc = PostDetailViewController.viewController(post)
+
+		navigationController?.pushViewController(vc, animated: true)
 	}
 
 }

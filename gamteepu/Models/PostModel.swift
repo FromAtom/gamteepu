@@ -25,7 +25,6 @@ struct PostModel: Decodable {
 	let largeFileURL: NSURL?
 	let originalFileURL: NSURL?
 
-
 	let artist: String?
 	static let endpoint = "https://danbooru.donmai.us"
 

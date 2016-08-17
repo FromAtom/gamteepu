@@ -23,7 +23,9 @@ final class PostCollectionViewCell: UICollectionViewCell {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 
-		thumbnailImageView.layer.cornerRadius = 5.0
+		layer.cornerRadius = 6.0
+		layer.masksToBounds = true
+		thumbnailImageView.layer.cornerRadius = 4.0
 		thumbnailImageView.layer.masksToBounds = true
 	}
 
