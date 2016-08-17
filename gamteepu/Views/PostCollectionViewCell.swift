@@ -11,6 +11,7 @@ import Haneke
 
 final class PostCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var thumbnailImageView: UIImageView!
+	@IBOutlet weak var containerView: UIView!
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -23,13 +24,15 @@ final class PostCollectionViewCell: UICollectionViewCell {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 
-		layer.cornerRadius = 6.0
-		layer.masksToBounds = true
+		containerView.layer.cornerRadius = 6.0
 		thumbnailImageView.layer.cornerRadius = 4.0
 		thumbnailImageView.layer.masksToBounds = true
 	}
 
 	override func prepareForReuse() {
+		super.prepareForReuse()
+
+		thumbnailImageView.hnk_cancelSetImage()
 		thumbnailImageView.image = nil
 	}
 

@@ -23,6 +23,7 @@ class PostsCollectionViewController: UICollectionViewController, APIModule {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		title = "Gamteepu"
 		let width: CGFloat = collectionView?.frame.width ?? UIScreen.mainScreen().bounds.width
 		cellWidth = floor((width - inset * CGFloat(numberOfItemsInLine + 1)) / CGFloat(numberOfItemsInLine))
 

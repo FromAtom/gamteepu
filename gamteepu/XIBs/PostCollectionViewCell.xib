@@ -14,22 +14,34 @@
                 <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Urk-SZ-ybW">
-                        <rect key="frame" x="4" y="4" width="102" height="102"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJI-lJ-rDz">
+                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Urk-SZ-ybW">
+                                <rect key="frame" x="4" y="4" width="102" height="102"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </imageView>
+                        <constraints>
+                            <constraint firstItem="Urk-SZ-ybW" firstAttribute="top" secondItem="rJI-lJ-rDz" secondAttribute="top" constant="4" id="LWu-Sh-iTr"/>
+                            <constraint firstAttribute="trailing" secondItem="Urk-SZ-ybW" secondAttribute="trailing" constant="4" id="VMN-16-HCW"/>
+                            <constraint firstAttribute="bottom" secondItem="Urk-SZ-ybW" secondAttribute="bottom" constant="4" id="bFu-it-6VM"/>
+                            <constraint firstItem="Urk-SZ-ybW" firstAttribute="leading" secondItem="rJI-lJ-rDz" secondAttribute="leading" constant="4" id="sqU-42-mEy"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Urk-SZ-ybW" secondAttribute="bottom" constant="4" id="7fZ-bc-bq9"/>
-                <constraint firstAttribute="trailing" secondItem="Urk-SZ-ybW" secondAttribute="trailing" constant="4" id="ECr-rM-C00"/>
-                <constraint firstItem="Urk-SZ-ybW" firstAttribute="top" secondItem="wii-Df-AmU" secondAttribute="top" constant="4" id="Qas-k9-NQe"/>
-                <constraint firstItem="Urk-SZ-ybW" firstAttribute="leading" secondItem="wii-Df-AmU" secondAttribute="leading" constant="4" id="kX7-yc-dt9"/>
+                <constraint firstItem="rJI-lJ-rDz" firstAttribute="leading" secondItem="wii-Df-AmU" secondAttribute="leading" id="J4y-Qb-2A9"/>
+                <constraint firstItem="rJI-lJ-rDz" firstAttribute="top" secondItem="wii-Df-AmU" secondAttribute="top" id="TS4-DM-gBv"/>
+                <constraint firstAttribute="trailing" secondItem="rJI-lJ-rDz" secondAttribute="trailing" id="dWR-8u-bya"/>
+                <constraint firstAttribute="bottom" secondItem="rJI-lJ-rDz" secondAttribute="bottom" id="oQ4-A8-qqy"/>
             </constraints>
             <size key="customSize" width="110" height="110"/>
             <connections>
+                <outlet property="containerView" destination="rJI-lJ-rDz" id="bCl-f2-HNE"/>
                 <outlet property="thumbnailImageView" destination="Urk-SZ-ybW" id="B59-al-iCT"/>
             </connections>
             <point key="canvasLocation" x="606" y="466"/>
