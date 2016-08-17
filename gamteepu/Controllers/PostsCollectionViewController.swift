@@ -16,8 +16,15 @@ class PostsCollectionViewController: UICollectionViewController, APIModule {
 	var posts: [PostModel] = []
 	var isLoadgind = false
 
+	let numberOfItemsInLine: Int = 3
+	let inset: CGFloat = 10
+	var cellWidth: CGFloat!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+		let width: CGFloat = collectionView?.frame.width ?? UIScreen.mainScreen().bounds.width
+		cellWidth = floor((width - inset * CGFloat(numberOfItemsInLine + 1)) / CGFloat(numberOfItemsInLine))
 
 		registerNibs()
 		refresh()
@@ -41,15 +48,29 @@ class PostsCollectionViewController: UICollectionViewController, APIModule {
 		loadNextPosts()
 	}
 
-	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-		let countPerLine: CGFloat = 2
-		let padding: CGFloat = 5.0
-		let spacing = padding * 2 + CGFloat(countPerLine - 1) * padding
-		let cellSize = floor((view.frame.size.width - spacing) / countPerLine)
-
-		return CGSize(width: cellSize, height: cellSize)
-	}
 }
+
+// MARK: UICollectionView: layout
+extension PostsCollectionViewController {
+
+	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+		return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+	}
+
+	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+		return CGSize(width: cellWidth, height: cellWidth)
+	}
+
+	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+		return inset
+	}
+
+	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+		return inset
+	}
+	
+}
+
 
 extension PostsCollectionViewController {
 
@@ -87,7 +108,7 @@ private extension PostsCollectionViewController {
 				do {
 					let post = try decodeValue(object) as PostModel
 					guard let _ = post.previewFileURL where post.fileType != "gif" else {
-						return
+						continue
 					}
 
 					self?.posts.append(post)

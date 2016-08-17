@@ -31,6 +31,10 @@ final class PostCollectionViewCell: UICollectionViewCell {
 		thumbnailImageView.image = nil
 	}
 
+	override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+		return layoutAttributes
+	}
+
 	func displayWithPostModel(post: PostModel) {
 		if let url = post.previewFileURL {
 			thumbnailImageView.hnk_setImageFromURL(url)
