@@ -10,6 +10,7 @@ import UIKit
 import Haneke
 
 final class PostDetailViewController: UIViewController {
+	@IBOutlet weak var thumbnailImageView: UIImageView!
 	@IBOutlet weak var imageView: UIImageView!
 
 	var targetPost: PostModel!
@@ -30,11 +31,21 @@ final class PostDetailViewController: UIViewController {
 			return
 		}
 
+		setupImageView()
 		let cache = Shared.imageCache
 		let fetcher = NetworkFetcher<UIImage>(URL: previewURL)
-		cache.fetch(fetcher: fetcher).onSuccess { image in
-			let thumbnailImage = self.generageFilteredImage(image)
-			self.imageView.hnk_setImageFromURL(largeURL, placeholder: thumbnailImage, format: nil, failure: nil, success: nil)
+		cache.fetch(fetcher: fetcher).onSuccess { [weak self] image in
+			guard let thumbnailImage = self?.generageFilteredImage(image) else {
+				return
+			}
+
+			cache.set(value: thumbnailImage, key: fetcher.key)
+			self?.thumbnailImageView.image = thumbnailImage
+
+			self?.imageView.hnk_setImageFromURL(largeURL, placeholder: nil, format: nil, failure: nil) { [weak self] image in
+				self?.imageView.image = image
+				self?.imageView.fadeIn(.Normal)
+			}
 		}
 
     }
@@ -43,14 +54,18 @@ final class PostDetailViewController: UIViewController {
 		super.viewDidLayoutSubviews()
 	}
 
+	private func setupImageView() {
+		imageView.hidden = true
+		imageView.alpha = 0.0
+	}
+
 	private func generageFilteredImage(image: UIImage) -> UIImage {
-		guard let ciImage = CIImage(image: image), filter = CIFilter(name: "CIColorMonochrome") else {
+		guard let ciImage = CIImage(image: image), filter = CIFilter(name: "CIGaussianBlur") else {
 			return image
 		}
 
 		filter.setValue(ciImage, forKey: kCIInputImageKey)
-		filter.setValue(CIColor(red: 0.75, green: 0.75, blue: 0.75), forKey: "inputColor")
-		filter.setValue(1.0, forKey: "inputIntensity")
+		filter.setValue(1.0, forKey: "inputRadius")
 
 		let context = CIContext(options: nil)
 		guard let result = filter.outputImage else {
