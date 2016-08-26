@@ -19,8 +19,10 @@ extension APIModule {
 		return 50
 	}
 	var endpoint: String {
-		return "https://danbooru.donmai.us/posts.json?limit=\(limit)&page=\(page)&tags=rating:s"
-		// Explicit: return "https://danbooru.donmai.us/posts.json?limit=\(limit)&page=\(page)&tags=rating:e"
-		// Hot:  return "https://danbooru.donmai.us/posts.json?limit=\(limit)&page=\(page)&tags=order:rank"
+		//return "https://danbooru.donmai.us/posts.json?limit=\(limit)&page=\(page)&tags=rating:s"
+		// Explicit: 
+		//return "https://danbooru.donmai.us/posts.json?limit=\(limit)&page=\(page)&tags=rating:e"
+		// Hot:
+		return "https://danbooru.donmai.us/posts.json?limit=\(limit)&page=\(page)&tags=order:rank"
 	}
 }

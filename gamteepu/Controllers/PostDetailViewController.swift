@@ -33,7 +33,8 @@ final class PostDetailViewController: UIViewController {
 		let cache = Shared.imageCache
 		let fetcher = NetworkFetcher<UIImage>(URL: previewURL)
 		cache.fetch(fetcher: fetcher).onSuccess { image in
-			self.imageView.hnk_setImageFromURL(largeURL, placeholder: image, format: nil, failure: nil, success: nil)
+			let thumbnailImage = self.generageFilteredImage(image)
+			self.imageView.hnk_setImageFromURL(largeURL, placeholder: thumbnailImage, format: nil, failure: nil, success: nil)
 		}
 
     }
@@ -42,6 +43,23 @@ final class PostDetailViewController: UIViewController {
 		super.viewDidLayoutSubviews()
 	}
 
+	private func generageFilteredImage(image: UIImage) -> UIImage {
+		guard let ciImage = CIImage(image: image), filter = CIFilter(name: "CIColorMonochrome") else {
+			return image
+		}
 
+		filter.setValue(ciImage, forKey: kCIInputImageKey)
+		filter.setValue(CIColor(red: 0.75, green: 0.75, blue: 0.75), forKey: "inputColor")
+		filter.setValue(1.0, forKey: "inputIntensity")
+
+		let context = CIContext(options: nil)
+		guard let result = filter.outputImage else {
+			return image
+		}
+
+		let cgImageRef = context.createCGImage(result, fromRect: ciImage.extent)
+		let filteredImage = UIImage(CGImage: cgImageRef)
+		return filteredImage
+	}
 }
 
