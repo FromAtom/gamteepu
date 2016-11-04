@@ -11,11 +11,11 @@ import UIKit
 
 extension UIColor {
 	convenience init?(hexString: String, alpha: CGFloat = 1.0) {
-		let validatedHexColorCode = hexString.stringByReplacingOccurrencesOfString("#", withString: "")
-		let scanner = NSScanner(string: validatedHexColorCode)
+		let validatedHexColorCode = hexString.replacingOccurrences(of: "#", with: "")
+		let scanner = Scanner(string: validatedHexColorCode)
 		var colorCode: UInt32 = 0
 
-		guard scanner.scanHexInt(&colorCode) else {
+		guard scanner.scanHexInt32(&colorCode) else {
 			print("ERROR: 色変換に失敗しました。")
 			return nil
 		}
@@ -44,6 +44,6 @@ enum ColorSet: String {
 	}
 
 	var CGColor: UIKit.CGColor {
-		return self.UIColor.CGColor
+		return self.UIColor.cgColor
 	}
 }

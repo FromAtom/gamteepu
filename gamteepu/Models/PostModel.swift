@@ -21,14 +21,14 @@ struct PostModel: Decodable {
 	let previewFilePath: String?
 	let largeFilePath: String?
 	let originalFilePath: String?
-	let previewFileURL: NSURL?
-	let largeFileURL: NSURL?
-	let originalFileURL: NSURL?
+	let previewFileURL: URL?
+	let largeFileURL: URL?
+	let originalFileURL: URL?
 
 	let artist: String?
 	static let endpoint = "https://danbooru.donmai.us"
 
-	static func decode(e: Extractor) throws -> PostModel {
+	static func decode(_ e: Extractor) throws -> PostModel {
 		let previewFilePath: String? = try e <|? "preview_file_url"
 		let previewFileURL = PostModel.benri(previewFilePath)
 
@@ -53,9 +53,9 @@ struct PostModel: Decodable {
 		)
 	}
 
-	static func benri(path: String?) -> NSURL? {
+	static func benri(_ path: String?) -> URL? {
 		if let path = path {
-			return NSURL(string: PostModel.endpoint + path)
+			return URL(string: PostModel.endpoint + path)
 		}
 		return nil
 	}

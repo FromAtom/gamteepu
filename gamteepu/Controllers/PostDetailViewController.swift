@@ -15,8 +15,8 @@ final class PostDetailViewController: UIViewController {
 
 	var targetPost: PostModel!
 
-	class func viewController(post: PostModel) -> PostDetailViewController {
-		let storyboard = UIStoryboard(name: "PostDetailViewController", bundle: NSBundle.mainBundle())
+	class func viewController(_ post: PostModel) -> PostDetailViewController {
+		let storyboard = UIStoryboard(name: "PostDetailViewController", bundle: Bundle.main)
 		let viewController = storyboard.instantiateInitialViewController() as! PostDetailViewController
 
 		viewController.targetPost = post
@@ -27,7 +27,7 @@ final class PostDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		guard let previewURL = targetPost.previewFileURL, largeURL = targetPost.largeFileURL else {
+		guard let previewURL = targetPost.previewFileURL, let largeURL = targetPost.largeFileURL else {
 			return
 		}
 
@@ -44,7 +44,7 @@ final class PostDetailViewController: UIViewController {
 
 			self?.imageView.hnk_setImageFromURL(largeURL, placeholder: nil, format: nil, failure: nil) { [weak self] image in
 				self?.imageView.image = image
-				self?.imageView.fadeIn(.Normal)
+				self?.imageView.fadeIn(.normal)
 			}
 		}
 
@@ -54,13 +54,13 @@ final class PostDetailViewController: UIViewController {
 		super.viewDidLayoutSubviews()
 	}
 
-	private func setupImageView() {
-		imageView.hidden = true
+	fileprivate func setupImageView() {
+		imageView.isHidden = true
 		imageView.alpha = 0.0
 	}
 
-	private func generageFilteredImage(image: UIImage) -> UIImage {
-		guard let ciImage = CIImage(image: image), filter = CIFilter(name: "CIGaussianBlur") else {
+	fileprivate func generageFilteredImage(_ image: UIImage) -> UIImage {
+		guard let ciImage = CIImage(image: image), let filter = CIFilter(name: "CIGaussianBlur") else {
 			return image
 		}
 
@@ -72,8 +72,8 @@ final class PostDetailViewController: UIViewController {
 			return image
 		}
 
-		let cgImageRef = context.createCGImage(result, fromRect: ciImage.extent)
-		let filteredImage = UIImage(CGImage: cgImageRef)
+		let cgImageRef = context.createCGImage(result, from: ciImage.extent)
+		let filteredImage = UIImage(cgImage: cgImageRef!)
 		return filteredImage
 	}
 }

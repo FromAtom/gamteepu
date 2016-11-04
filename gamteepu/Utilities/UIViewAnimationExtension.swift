@@ -9,38 +9,38 @@
 import Foundation
 import UIKit
 
-enum FadeType: NSTimeInterval {
-	case Fast = 0.1
-	case Normal = 0.5
-	case Slow = 1.0
+enum FadeType: TimeInterval {
+	case fast = 0.1
+	case normal = 0.5
+	case slow = 1.0
 }
 
 extension UIView {
-	func fadeIn(type: FadeType = .Fast, completion: (() -> ())? = nil) {
+	func fadeIn(_ type: FadeType = .fast, completion: (() -> ())? = nil) {
 		fadeInWithDurasion(type.rawValue, completion: completion)
 	}
 
-	func fadeInWithDurasion(duration: NSTimeInterval = FadeType.Slow.rawValue, completion: (() -> ())? = nil) {
+	func fadeInWithDurasion(_ duration: TimeInterval = FadeType.slow.rawValue, completion: (() -> ())? = nil) {
 		alpha = 0
-		hidden = false
-		UIView.animateWithDuration(duration, animations: {
+		isHidden = false
+		UIView.animate(withDuration: duration, animations: {
 			self.alpha = 1
-		}) { finished in
+		}, completion: { finished in
 			completion?()
-		}
+		}) 
 	}
 
-	func fadeOut(type: FadeType = .Fast, completion: (() -> ())? = nil) {
+	func fadeOut(_ type: FadeType = .fast, completion: (() -> ())? = nil) {
 		fadeOutWithDuration(type.rawValue, completion: completion)
 	}
 
-	func fadeOutWithDuration(duration: NSTimeInterval = FadeType.Slow.rawValue, completion: (() -> ())? = nil) {
-		UIView.animateWithDuration(duration, animations: {
+	func fadeOutWithDuration(_ duration: TimeInterval = FadeType.slow.rawValue, completion: (() -> ())? = nil) {
+		UIView.animate(withDuration: duration, animations: {
 			self.alpha = 0
-		}) { [weak self] finished in
-			self?.hidden = true
+		}, completion: { [weak self] finished in
+			self?.isHidden = true
 			self?.alpha = 1
 			completion?()
-		}
+		}) 
 	}
 }

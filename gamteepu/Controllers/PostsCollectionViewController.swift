@@ -24,7 +24,7 @@ class PostsCollectionViewController: UICollectionViewController, APIModule {
         super.viewDidLoad()
 
 		title = "Gamteepu"
-		let width: CGFloat = collectionView?.frame.width ?? UIScreen.mainScreen().bounds.width
+		let width: CGFloat = collectionView?.frame.width ?? UIScreen.main.bounds.width
 		cellWidth = floor((width - inset * CGFloat(numberOfItemsInLine + 1)) / CGFloat(numberOfItemsInLine))
 
 		registerNibs()
@@ -35,17 +35,17 @@ class PostsCollectionViewController: UICollectionViewController, APIModule {
 
 extension PostsCollectionViewController {
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PostCollectionViewCell", forIndexPath: indexPath) as! PostCollectionViewCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCollectionViewCell", for: indexPath) as! PostCollectionViewCell
 		cell.displayWithPostModel(posts[indexPath.row])
         return cell
     }
 
-	override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+	override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 		guard indexPath.row >= posts.count - 2 && posts.count != 0 else {
 			return
 		}
@@ -53,7 +53,7 @@ extension PostsCollectionViewController {
 		loadNextPosts()
 	}
 
-	override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let index = indexPath.row
 		let post = posts[index]
 		let vc = PostDetailViewController.viewController(post)
@@ -66,19 +66,19 @@ extension PostsCollectionViewController {
 // MARK: UICollectionView: layout
 extension PostsCollectionViewController {
 
-	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
 		return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
 	}
 
-	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
 		return CGSize(width: cellWidth, height: cellWidth)
 	}
 
-	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
 		return inset
 	}
 
-	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
 		return inset
 	}
 	
@@ -108,8 +108,8 @@ extension PostsCollectionViewController {
 
 private extension PostsCollectionViewController {
 
-	private func fetchPosts() {
-		Alamofire.request(.GET, endpoint).responseJSON { [weak self] response in
+	func fetchPosts() {
+		Alamofire.request(endpoint).responseJSON { [weak self] response in
 			defer {
 				self?.isLoadgind = false
 			}
@@ -120,7 +120,7 @@ private extension PostsCollectionViewController {
 			for object in json {
 				do {
 					let post = try decodeValue(object) as PostModel
-					guard let _ = post.previewFileURL where post.fileType != "gif" else {
+					guard let _ = post.previewFileURL, post.fileType != "gif" else {
 						continue
 					}
 
@@ -134,18 +134,18 @@ private extension PostsCollectionViewController {
 		}
 	}
 
-	private func resetPosts() {
+	func resetPosts() {
 		page = 1
 		posts = []
 	}
 
-	private func registerNibs() {
+	func registerNibs() {
 		let nibNames: [String] = [
 			"PostCollectionViewCell"
 		]
 
 		for name in nibNames {
-			collectionView?.registerNib(UINib(nibName: name, bundle: nil), forCellWithReuseIdentifier: name)
+			collectionView?.register(UINib(nibName: name, bundle: nil), forCellWithReuseIdentifier: name)
 		}
 	}
 
